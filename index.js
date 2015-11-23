@@ -16,12 +16,12 @@ socket.on('stop', function(data){
 });
 
 socket.on('move forward', function(data){
-  var res = robot.motion.forward(false)
+  var res = robot.motion.backward(false)
   console.log('Moving forward::' + res)
 });
 
 socket.on('move backward', function(data){
-  var res = robot.motion.backward(false)
+  var res = robot.motion.forward(false)
   console.log('Moving backward::' + res)
 });
 
