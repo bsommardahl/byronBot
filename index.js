@@ -10,6 +10,16 @@ socket.on('connect', function(){
   console.log("connected to server.")
 });
 
+socket.on('highSpeed', function(data){
+  var res = robot.motion.setSpeed(255);
+  console.log("Set speed to 255::" + res);
+});
+
+socket.on('lowSpeed', function(data){
+  var res = robot.motion.setSpeed(100);
+  console.log("Set speed to 100::" + res);
+});
+
 socket.on('stop', function(data){
   var res = robot.motion.stop()
   console.log("Stopping::" + res);
@@ -30,11 +40,21 @@ socket.on('move left', function(data){
   console.log('Turning left::' + res)
 });
 
+socket.on('rotate left', function(data){
+  var res = robot.motion.leftWithRotation()
+  console.log('Rotating left::' + res)
+});
+
 socket.on('move right', function(data){
   var res = robot.motion.right()
   console.log('Turning right::' + res)
 });
   
+socket.on('rotate right', function(data){
+  var res = robot.motion.rightWithRotation()
+  console.log('Rotating right::' + res)
+});
+
 socket.on('disconnect', function(){
   console.log("disconnected.")
 });
